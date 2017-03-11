@@ -1,0 +1,10 @@
+{
+    "presets": [
+      "es2015",
+      "bluebird"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-runtime"
+    ]
+}

@@ -1,0 +1,29 @@
+<div class="container" ng-show="$ctrl.isReady">
+  <div class="row">
+    <div class="col-sm-12">
+      <widget-picker title="Add to Top"
+                     on-change="$ctrl.createTop($widget)"
+                     on-reset="$ctrl.removeAll()">
+      </widget-picker>
+    </div>
+  </div>
+</div>
+
+<div class="my-widgets container-fluid">
+  <div class="col-sm-12" ng-hide="$ctrl.isReady">
+    <h2 class="text-center">
+      <loading-sign></loading-sign>
+    </h2>
+  </div>
+</div>
+
+<div class="container" ng-show="$ctrl.isReady">
+  <div class="row">
+    <div class="col-sm-12">
+      <widget-picker title="Add to Bottom"
+                     on-change="$ctrl.createBottom($widget)"
+                     on-reset="$ctrl.removeAll()">
+      </widget-picker>
+    </div>
+  </div>
+</div>

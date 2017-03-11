@@ -1,0 +1,23 @@
+<simple-widget default-title="Simple Embed"
+               id="$ctrl.id" config="$ctrl.config"
+               is-ready="$ctrl.isReady" is-error="$ctrl.isError"
+               on-customize="$ctrl.customize($isCustomizing)">
+
+  <p ng-repeat="srcTrusted in $ctrl.srcTrustedList"
+     class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item" ng-src="{{ srcTrusted }}" allowfullscreen>
+      <loading-sign></loading-sign>
+    </iframe>
+  </p>
+
+  <p class="form-inline" ng-show="$ctrl.srcTrustedList.length == 0">
+    <span class="form-group">
+      <span class="input-group">
+        <span class="input-group-addon">Embed</span>
+        <input type="url" class="form-control"
+               ng-model="$ctrl.config.src" ng-keypress="$ctrl.customizeCheck($event)">
+      </span>
+    </span>
+  </p>
+
+</simple-widget>

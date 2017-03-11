@@ -1,0 +1,22 @@
+<p class="form">
+  <span class="input-group">
+    <span class="input-group-addon">
+      Widgets
+      <loading-sign ng-hide="$ctrl.isReady"></loading-sign>
+      <error-sign ng-show="$ctrl.isError"></error-sign>
+    </span>
+
+    <select class="form-control" ng-model="$ctrl.widget" ng-change="$ctrl.onSelect()">
+      <optgroup label="Assignments">
+        <option ng-repeat="widget in $ctrl.systemWidgets" ng-value="widget">
+          {{widget.title}}
+        </option>
+      </optgroup>
+    </select>
+
+    <span class="input-group-btn">
+      <span ng-if="$ctrl.title" class="btn btn-primary">{{$ctrl.title}}</span>
+      <button class="btn btn-danger" ng-click="$ctrl.onReset()">Reset</button>
+    </span>
+  </span>
+</p>

@@ -1,0 +1,31 @@
+<div class="col-sm-{{$ctrl.config.isMaximized ? 12 : $ctrl.config.width}}">
+  <section class="panel panel-default">
+    <header class="panel-heading">
+      <span class="panel-title form-inline">
+        <span ng-hide="$ctrl.config.isMaximized" class="panel-buttons">
+          <a class="glyphicon glyphicon-triangle-left" ng-click="$ctrl.lessWidth()"></a>
+          <a class="glyphicon glyphicon-triangle-right" ng-click="$ctrl.moreWidth()"></a>
+        </span>
+
+        <span ng-hide="$ctrl.config.isCustomizing">{{$ctrl.config.title}}</span>
+        <input ng-show="$ctrl.config.isCustomizing" class="form-control" type="text"
+               ng-model="$ctrl.config.title" ng-keypress="$ctrl.checkCustomize($event)">
+
+        <loading-sign ng-hide="$ctrl.isReady"></loading-sign>
+        <error-sign ng-show="$ctrl.isError"></error-sign>
+
+        <span class="panel-buttons pull-right">
+          <a class="glyphicon glyphicon-edit" ng-click="$ctrl.toggleCustomize()"></a>
+          <a class="glyphicon glyphicon-share" ng-click="$ctrl.publish()"></a>
+          <a class="glyphicon glyphicon-resize-vertical" ng-click="$ctrl.toggleCollapse()"></a>
+          <a class="glyphicon glyphicon-resize-horizontal" ng-click="$ctrl.toggleMaximize()"></a>
+          <a class="glyphicon glyphicon-remove" ng-click="$ctrl.close()"></a>
+        </span>
+      </span>
+    </header>
+
+    <article class="panel-body" ng-hide="$ctrl.config.isCollapsed">
+      <ng-transclude></ng-transclude>
+    </article>
+  </section>
+</div>
