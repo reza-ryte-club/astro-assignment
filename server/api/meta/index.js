@@ -11,7 +11,8 @@ let router = express.Router();
  * Routes
  */
 
- router.get('/getAllChannels', controller.getAllChannels);
+router.get('/getAllChannels', controller.getAllChannels);
+router.get('/getAllEvents', controller.getAllEvents);
 
 /**
  * Exports
