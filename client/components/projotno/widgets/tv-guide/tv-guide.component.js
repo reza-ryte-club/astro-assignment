@@ -38,27 +38,27 @@ class TvGuideComponent {
     for(var i = this.paginationStart; i < this.paginationEnd; i++) {
       this.paginatedChannels.push(this.tvChannels[i]);
     }
+
+    this.channelIds = [];
+    this.paginatedChannels.forEach(chnl => this.channelIds.push(chnl.channelId));
   }
 
   previous() {
-    console.log('previous');
-    console.log(this.paginationStart);
     if(this.paginationStart > 0) {
       this.paginationStart = this.paginationStart - 10;
       this.paginationEnd = this.paginationEnd - 10;
       this._getPaginatedChannels();
     }
+    console.log(this.channelIds);
   }
 
   next() {
-    console.log('next');
-    console.log(this.paginationEnd);
-    console.log(this.config.channels.length);
     if(this.paginationEnd != this.config.channels.length - 1) {
       this.paginationStart = this.paginationStart + 10;
       this.paginationEnd = this.paginationEnd + 10;
       this._getPaginatedChannels();
     }
+    console.log(this.channelIds);
   }
   _fetch() {
     console.log('in the fetch');
