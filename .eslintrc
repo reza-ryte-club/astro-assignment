@@ -17,7 +17,8 @@
       "it": true,
       "assert": true,
       "tableSort": true,
-      "before": true
+      "before": true,
+      "moment": true
     },
     "plugins": [],
     "rules": {
