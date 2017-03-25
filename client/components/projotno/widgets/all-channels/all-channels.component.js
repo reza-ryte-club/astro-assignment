@@ -6,9 +6,7 @@
 
 import tableSort from 'angular-tablesort';
 
-/**
- * Patient Register Chart Component
- */
+
 class AllChannelsComponent {
   isReady = false;
   isError = false;
@@ -27,7 +25,7 @@ class AllChannelsComponent {
     }
     // this.selectedChannel =  [{favorite: true, channelStbNumber: 101, channelTitle: "TV 1", channelId: 95, $$hashKey: "object:215"}];
     this.selectedChannel = [5,4,2];
-    
+
 
     this.refresh();
   }
@@ -62,7 +60,6 @@ class AllChannelsComponent {
         theChannel.favorite = false;
       });
     }
-
   }
 
   makeFav(channel) {

@@ -1,0 +1,36 @@
+<simple-widget default-title="TV Guide" id="$ctrl.id" config="$ctrl.config"
+              id="$ctrl.id" is-ready="$ctrl.isReady" is-error="$ctrl.isError">
+  <div ng-show="$ctrl.tvChannels" ng-model="$ctrl.tvChannels">
+    <table class="table table-bordered" border="1" ts-wrapper>
+      <ul class="pager">
+        <li class="previous">
+          <a ng-click="$ctrl.previous()" ng-hide="$ctrl.skip===0">Previous</a>
+        </li>
+        <li class="next">
+          <a ng-click="$ctrl.next()">Next</a>
+        </li>
+      </ul>
+      <thead>
+      <tr>
+        <th ts-criteria="channelStbNumber|parseInt" ts-default class="sortable-channel">
+          Channel Number
+          <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+        </th>
+        <th ts-criteria="channelTitle|lowercase" class="sortable-channel">
+        Channel Title
+          <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+        </th>
+        <!-- <th>Make it Favorite</th> -->
+      </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="channel in $ctrl.paginatedChannels" ts-repeat ng-show="channel">
+          <td>{{channel.channelStbNumber}}</td>
+          <td ng-click="$ctrl.showInformation(channel)">{{channel.channelTitle}}</td>
+          <!-- <td ng-if="channel.favorite"><button ng-click="$ctrl.removeFav(channel)">Remove from favorite</button></td> -->
+          <!-- <td ng-if="!channel.favorite"><button ng-click="$ctrl.makeFav(channel)">Make it favorite</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</simple-widget>

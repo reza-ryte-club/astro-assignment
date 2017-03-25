@@ -3,7 +3,22 @@
     "env": {
         "es6": true
     },
-    "globals": {},
+    "globals": {
+      "angular": true,
+      "swal": true,
+      "db": true,
+      "multer": true,
+      "multerstorages3": true,
+      "app": true,
+      "passport": true,
+      "io": true,
+      "http": true,
+      "describe": true,
+      "it": true,
+      "assert": true,
+      "tableSort": true,
+      "before": true
+    },
     "plugins": [],
     "rules": {
         //Possible Errors
