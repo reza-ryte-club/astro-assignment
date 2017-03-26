@@ -89,13 +89,29 @@ class TvGuideComponent {
   }
   _getEvents() {
     console.log('kkokok');
-    this._fetchTheEvents();
+    this._fetchTheEvents()
+    .then(response => {
+      let eventData = {};
+      let events = {};
+      if(response.body) {
+        eventData = JSON.parse(response.body);
+        events = eventData.getevent;
+      }
+      console.log(response);
+      if(eventData) {
+       console.log(eventData);
+       console.log('events');
+       console.log(events);
+      }
+
+    });
+
   }
 
   _fetchTheEvents() {
     console.log('in the fetchevents');
     this.isReady = false;
-    let requestURL = `api/meta/getAllEvents??channelId=${this.channelIds}&periodStart=${this.dayStartFrom} 00:00&periodEnd=${this.dayEnd} 23:59`;
+    let requestURL = `api/meta/getAllEvents?channelId=${this.channelIds}&periodStart=${this.dayStartFrom} 00:00&periodEnd=${this.dayEnd} 23:59`;
     console.log(requestURL);
     return this.$http.get(requestURL)
       .then(res => res.data.reports)
