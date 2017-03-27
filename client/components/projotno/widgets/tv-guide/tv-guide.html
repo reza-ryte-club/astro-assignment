@@ -21,8 +21,7 @@
         Channel Title
           <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
         </th>
-        <th ng-repeat="event in $ctrl.events"></th>
-        <!-- <th>Make it Favorite</th> -->
+        <!-- <th ng-repeat="event in $ctrl.events"></th> -->
       </tr>
       </thead>
       <tbody>
@@ -30,7 +29,6 @@
           <td>{{channel.channelStbNumber}}</td>
           <td ng-click="$ctrl.showInformation(channel)">{{channel.channelTitle}}</td>
           <td ng-repeat="event in $ctrl.events" ng-if="event.channelId==channel.channelId"><span ><b>{{event.programmeTitle}}</b></span></br />{{event.displayDateTimeUtc}}</span></td>
-          <!-- <td ng-if="!channel.favorite"><button ng-click="$ctrl.makeFav(channel)">Make it favorite</button></td> -->
         </tr>
       </tbody>
     </table>

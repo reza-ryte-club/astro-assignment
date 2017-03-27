@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * Imports
- */
-
-import tableSort from 'angular-tablesort';
-
 class TvGuideComponent {
   isReady = false;
   isError = false;
