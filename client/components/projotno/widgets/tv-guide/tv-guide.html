@@ -1,16 +1,16 @@
 <simple-widget default-title="TV Guide" id="$ctrl.id" config="$ctrl.config"
               id="$ctrl.id" is-ready="$ctrl.isReady" is-error="$ctrl.isError">
   <div ng-show="$ctrl.tvChannels" ng-model="$ctrl.tvChannels">
+    <ul class="pager">
+      <li class="previous">
+        <a ng-click="$ctrl.previous()" ng-hide="$ctrl.skip===0">Previous</a>
+      </li>
+      <li class="next">
+        <a ng-click="$ctrl.next()">Next</a>
+      </li>
+    </ul>
     <section class='table-responsive' style='margin:15px auto;'>
     <table class="table table-bordered" border="1" ts-wrapper>
-      <ul class="pager">
-        <li class="previous">
-          <a ng-click="$ctrl.previous()" ng-hide="$ctrl.skip===0">Previous</a>
-        </li>
-        <li class="next">
-          <a ng-click="$ctrl.next()">Next</a>
-        </li>
-      </ul>
       <thead>
       <tr>
         <th ts-criteria="channelStbNumber|parseInt" ts-default class="sortable-channel">
