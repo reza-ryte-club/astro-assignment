@@ -7,7 +7,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/mDoc',
+    uri: 'mongodb://localhost/astro',
     options: {
       server: {
         socketOptions: {
