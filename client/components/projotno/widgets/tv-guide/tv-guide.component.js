@@ -27,8 +27,6 @@ class TvGuideComponent {
     this.dayEnd = moment().startOf('day')
       .add(7, 'd')
       .format('YYYY-MM-DD');
-    // console.log(`day start from ${this.dayStartFrom}`);
-    // console.log(`day start from ${this.dayEnd}`);
   }
 
 
@@ -59,7 +57,9 @@ class TvGuideComponent {
   }
 
   next() {
-    if(this.paginationEnd != this.config.channels.length - 1) {
+    console.log('tv channels');
+    console.log(this.tvChannels.length);
+    if(this.paginationEnd != this.tvChannels.length - 1) {
       this.paginationStart = this.paginationStart + 10;
       this.paginationEnd = this.paginationEnd + 10;
       this._getPaginatedChannels();
@@ -83,29 +83,23 @@ class TvGuideComponent {
   _process(data) {
     let channelData = JSON.parse(data.body);
     let channels = channelData.channels;
-    console.log('channels');
     this.tvChannels = channels;
     this._getPaginatedChannels();
   }
   _getEvents() {
-    console.log('kkokok');
     this._fetchTheEvents()
     .then(response => {
-      let eventData = {};
-      let events = {};
       if(response.body) {
-        eventData = JSON.parse(response.body);
-        events = eventData.getevent;
+        this.eventData = JSON.parse(response.body);
+        this.events = this.eventData.getevent;
       }
       console.log(response);
-      if(eventData) {
-       console.log(eventData);
-       console.log('events');
-       console.log(events);
+      if(this.eventData) {
+        console.log(this.eventData);
+        console.log('events');
+        console.log(this.events);
       }
-
     });
-
   }
 
   _fetchTheEvents() {
