@@ -92,6 +92,12 @@ class TvGuideComponent {
         console.log(this.eventData);
         console.log('events');
         console.log(this.events);
+        this.events.forEach(event => {
+          event.localTime = moment.utc(event.displayDateTimeUtc).local()
+            .format('h:mmA');
+          event.localDate = moment.utc(event.displayDateTimeUtc).local()
+            .format('dddd, MMMM Do YYYY');
+        });
       }
     });
   }

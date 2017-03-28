@@ -21,14 +21,13 @@
         Channel Title
           <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
         </th>
-        <!-- <th ng-repeat="event in $ctrl.events"></th> -->
       </tr>
       </thead>
       <tbody>
         <tr ng-repeat="channel in $ctrl.paginatedChannels" ts-repeat ng-show="channel">
           <td>{{channel.channelStbNumber}}</td>
           <td ng-click="$ctrl.showInformation(channel)">{{channel.channelTitle}}</td>
-          <td ng-repeat="event in $ctrl.events" ng-if="event.channelId==channel.channelId"><span ><b>{{event.programmeTitle}}</b></span></br />{{event.displayDateTimeUtc}}</span></td>
+          <td ng-repeat="event in $ctrl.events" ng-if="event.channelId==channel.channelId"><span ><b>{{event.programmeTitle}}</b></span></br /></br>{{event.localTime}}</br></br>{{event.localDate}}</span></td>
         </tr>
       </tbody>
     </table>
